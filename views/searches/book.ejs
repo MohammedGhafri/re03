@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+</head>
+<body>
+    <h1>page after searching</h1>
+    <main>
+        
+<section>
+    <% searchin.forEach(item=>{ %>
+        <div>
+
+            <h2>
+                <%= Object.values(item)[0] %>
+            </h2>
+            <img src="<%= Object.values(item)[1] %>" alt="">
+            <form  class="formtoSelect"action="/selectthis" method="post">
+                <input type="text" name="title" value="<%= Object.values(item)[0] %>">
+                <input type="text" name="image" value="<%= Object.values(item)[1] %>">
+                <input type="text" name="auther" value="<%= Object.values(item)[3] %>">
+                <textarea name="des" id="" cols="30" rows="10"><%= Object.values(item)[2] %></textarea>
+                <input type="submit"  value="ADD" name="" id="">
+
+
+            </form>
+
+        </div>
+
+
+
+   <% }) %>
+    
+</section>
+
+    </main>
+    
+</body>
+</html>

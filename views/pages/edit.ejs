@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Edit page</h1>
+    <main>
+        <section>
+            <%   editing.forEach(item=>{%>
+            <h2>
+                <%= Object.values(item)[1] %>
+            </h2>
+            <img src="<%= Object.values(item)[2] %>" alt="">
+            <p><%= Object.values(item)[2] %></p>
+            <p><%= Object.values(item)[3] %></p>
+
+            <form action="/delet/<%= Object.values(item)[0] %>?metho=delete" method="post">
+                <input type="submit" value="DEL"></form>
+
+            <form action="/updateBook/<%= Object.values(item)[0] %>?metho=put" method="post">
+                <input type="text" name="title" value="<%= Object.values(item)[1] %>">
+                <input type="text" name="image" value="<%= Object.values(item)[2] %>">
+                <input type="text" name="auther" value="<%= Object.values(item)[4] %>">
+                <textarea name="des" id="" cols="30" rows="10"><%= Object.values(item)[3] %></textarea>
+                <input type="submit" value="UPDATE">
+
+
+            </form>
+
+            <%})%>
+        </section>
+    </main>
+
+</body>
+
+</html>
